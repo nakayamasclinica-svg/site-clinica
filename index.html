@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clínica Nakayama | Odontologia e Harmonização Orofacial no Parque Mandaqui - SP</title>
+  <meta name="description" content="Clínica Nakayama: há 26 anos cuidando de sorrisos no Parque Mandaqui, São Paulo. Clínica geral, harmonização orofacial, implantes, ortodontia, endodontia, clareamento e lentes de contato dental.">
+  <meta name="theme-color" content="#121417">
+  <link rel="canonical" href="https://www.clinicanakayama.com.br/">
+  <meta property="og:url" content="https://www.clinicanakayama.com.br/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Clínica Nakayama | Odontologia e Harmonização Orofacial no Parque Mandaqui - SP">
+  <meta property="og:description" content="Clínica Nakayama: há 26 anos cuidando de sorrisos no Parque Mandaqui, São Paulo. Clínica geral, harmonização orofacial, implantes, ortodontia, endodontia, clareamento e lentes de contato dental.">
+
+  <!-- Fontes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS (CDN) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            vinho:   { DEFAULT: '#8C1A11', escuro: '#6E140D', claro: '#B23A2E' },
+            carvao:  { DEFAULT: '#121417', medio: '#1C1F23' },
+            perola:  '#FAF7F2',
+            areia:   '#EFE8DE',
+            pedra:   '#8A847C'
+          },
+          fontFamily: {
+            titulo: ['"Cormorant Garamond"', 'serif'],
+            caps:   ['Cinzel', 'serif'],
+            corpo:  ['Jost', 'sans-serif']
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Jost', sans-serif; overflow-x: hidden; }
+    main > section > div { min-width: 0; }
+    .grid > * { min-width: 0; }
+
+    /* Rótulo pequeno em caixa alta, no estilo do material da clínica */
+    .rotulo { font-family: 'Cinzel', serif; letter-spacing: .22em; font-size: .72rem; text-transform: uppercase; }
+
+    /* Linha decorativa fina */
+    .filete { width: 56px; height: 1px; background: currentColor; opacity: .55; }
+
+    /* Animação suave ao rolar a página */
+    .revelar { opacity: 0; transform: translateY(18px); transition: opacity .9s ease, transform .9s ease; }
+    .revelar.visivel { opacity: 1; transform: none; }
+    @media (prefers-reduced-motion: reduce) {
+      .revelar { opacity: 1; transform: none; transition: none; }
+      html { scroll-behavior: auto; }
+    }
+
+    /* Cabeçalho ao rolar */
+    #cabecalho.rolado { background: rgba(18,20,23,.94); backdrop-filter: blur(8px); box-shadow: 0 1px 0 rgba(255,255,255,.06); }
+
+    .cartao-servico { transition: transform .4s ease, box-shadow .4s ease, border-color .4s ease; }
+    .cartao-servico:hover { transform: translateY(-4px); box-shadow: 0 18px 40px -24px rgba(18,20,23,.35); border-color: rgba(140,26,17,.35); }
+  </style>
+</head>
+
+<body class="bg-perola text-carvao antialiased">
+
+  <!-- Símbolo da clínica (reutilizado no cabeçalho, no topo e no rodapé) -->
+  <svg width="0" height="0" class="absolute" aria-hidden="true">
+    <defs>
+      <symbol id="emblema" viewBox="0 0 200 200">
+        <circle cx="100" cy="100" r="100" fill="#8C1A11"/>
+        <g fill="none" stroke="#FAF7F2" stroke-width="2.2" stroke-linecap="round">
+          <!-- J -->
+          <path d="M66 52 H96"/>
+          <path d="M84 52 V112 C84 128 72 134 62 128"/>
+          <!-- G -->
+          <path d="M136 68 C128 56 112 54 102 62 C88 73 88 101 100 112 C111 122 128 120 136 108 V92 H118"/>
+        </g>
+        <text x="100" y="152" text-anchor="middle" fill="#FAF7F2" font-family="Jost, sans-serif" font-size="11.5" letter-spacing="3.5">CLINICA</text>
+        <text x="100" y="168" text-anchor="middle" fill="#FAF7F2" font-family="Jost, sans-serif" font-size="11.5" letter-spacing="3.5">NAKAYAMA</text>
+      </symbol>
+    </defs>
+  </svg>
+
+  <!-- ===================== CABEÇALHO ===================== -->
+  <header id="cabecalho" class="fixed inset-x-0 top-0 z-50 transition-all duration-500">
+    <div class="mx-auto flex max-w-6xl items-center justify-between px-5 py-4 md:px-8">
+      <a href="#inicio" class="flex items-center gap-3 text-perola" aria-label="Clínica Nakayama - início">
+        <svg class="h-11 w-11"><use href="#emblema"/></svg>
+        <span class="hidden font-caps text-sm tracking-[.25em] sm:inline">Clínica Nakayama</span>
+      </a>
+
+      <nav class="hidden items-center gap-8 text-[13px] uppercase tracking-[.16em] text-perola/80 lg:flex" aria-label="Menu principal">
+        <a href="#sobre" class="transition hover:text-perola">A clínica</a>
+        <a href="#equipe" class="transition hover:text-perola">Equipe</a>
+        <a href="#tratamentos" class="transition hover:text-perola">Tratamentos</a>
+        <a href="#estrutura" class="transition hover:text-perola">Estrutura</a>
+        <a href="#localizacao" class="transition hover:text-perola">Localização</a>
+        <a href="#contato" class="border border-perola/40 px-5 py-2 text-perola transition hover:border-perola hover:bg-perola hover:text-carvao">Contato</a>
+      </nav>
+
+      <button id="botao-menu" class="p-2 text-perola lg:hidden" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu-movel">
+        <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+
+    <!-- Menu do celular -->
+    <nav id="menu-movel" class="hidden border-t border-white/10 bg-carvao/95 backdrop-blur lg:hidden" aria-label="Menu do celular">
+      <div class="flex flex-col px-5 py-4 text-sm uppercase tracking-[.16em] text-perola/85">
+        <a href="#sobre" class="py-3">A clínica</a>
+        <a href="#equipe" class="py-3">Equipe</a>
+        <a href="#tratamentos" class="py-3">Tratamentos</a>
+        <a href="#estrutura" class="py-3">Estrutura</a>
+        <a href="#localizacao" class="py-3">Localização</a>
+        <a href="#contato" class="py-3">Contato</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ===================== TOPO ===================== -->
+    <section id="inicio" class="relative overflow-hidden bg-carvao text-perola">
+      <div class="pointer-events-none absolute inset-0 opacity-60" style="background: radial-gradient(60% 70% at 78% 45%, rgba(140,26,17,.28), transparent 70%);"></div>
+
+      <div class="relative mx-auto grid min-h-[92vh] max-w-6xl items-center gap-12 px-5 pb-20 pt-32 md:px-8 lg:grid-cols-[1.25fr_1fr]">
+        <div class="revelar">
+          <p class="rotulo text-perola/70">Odontologia &amp; Harmonização Orofacial · Parque Mandaqui, São Paulo</p>
+          <h1 class="mt-6 font-titulo text-5xl font-light leading-[1.05] sm:text-6xl lg:text-7xl">
+            Cuidado que atravessa <em class="font-normal text-[#E9C9C3]">gerações.</em>
+          </h1>
+          <p class="mt-7 max-w-xl text-lg font-light leading-relaxed text-perola/75">
+            Há 26 anos, a Clínica Nakayama une técnica, sensibilidade e atenção a cada detalhe para cuidar
+            da saúde do seu sorriso e valorizar a sua beleza natural.
+          </p>
+          <div class="mt-10 flex flex-wrap gap-4">
+            <a href="#sobre" class="bg-vinho px-7 py-3.5 text-[13px] uppercase tracking-[.18em] transition hover:bg-vinho-claro">Conheça a clínica</a>
+            <a href="#localizacao" class="border border-perola/35 px-7 py-3.5 text-[13px] uppercase tracking-[.18em] transition hover:border-perola">Como chegar</a>
+          </div>
+        </div>
+
+        <div class="revelar flex justify-center lg:justify-end">
+          <div class="relative">
+            <div class="absolute -inset-6 rounded-full border border-perola/10"></div>
+            <div class="absolute -inset-12 rounded-full border border-perola/5"></div>
+            <svg class="h-48 w-48 drop-shadow-2xl sm:h-80 sm:w-80" role="img" aria-label="Logotipo da Clínica Nakayama"><use href="#emblema"/></svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- Números -->
+      <div class="relative border-t border-white/10">
+        <div class="mx-auto grid max-w-6xl grid-cols-3 divide-x divide-white/10 px-2 md:px-8 [&_.rotulo]:tracking-[.1em] sm:[&_.rotulo]:tracking-[.22em]">
+          <div class="py-7 text-center">
+            <p class="font-titulo text-4xl font-light sm:text-5xl">26</p>
+            <p class="rotulo mt-2 text-[10px] text-perola/60 sm:text-xs">anos de história</p>
+          </div>
+          <div class="py-7 text-center">
+            <p class="font-titulo text-4xl font-light sm:text-5xl">3</p>
+            <p class="rotulo mt-2 text-[10px] text-perola/60 sm:text-xs">gerações na saúde</p>
+          </div>
+          <div class="py-7 text-center">
+            <p class="font-titulo text-4xl font-light sm:text-5xl">7</p>
+            <p class="rotulo mt-2 text-[10px] text-perola/60 sm:text-xs">áreas de atendimento</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== A CLÍNICA ===================== -->
+    <section id="sobre" class="scroll-mt-20 py-24 md:py-32">
+      <div class="mx-auto grid max-w-6xl items-center gap-14 px-5 md:px-8 lg:grid-cols-2 lg:gap-20">
+        <!-- Foto das doutoras: salvar o arquivo em site/img/doutoras.jpg -->
+        <figure class="revelar relative mx-auto w-full max-w-md">
+          <div class="absolute -bottom-5 -right-5 hidden h-full w-full border border-vinho/40 sm:block"></div>
+          <div class="relative aspect-[585/740] overflow-hidden bg-areia">
+            <img src="img/doutoras.jpg"
+                 alt="Dra. Jaqueline Nakayama e Dra. Giovanna Nakayama no consultório da Clínica Nakayama"
+                 class="h-full w-full object-cover object-top"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="absolute inset-0 hidden items-center justify-center bg-carvao">
+              <svg class="h-40 w-40"><use href="#emblema"/></svg>
+            </div>
+          </div>
+          <figcaption class="rotulo mt-8 text-center text-pedra">Dra. Jaqueline &amp; Dra. Giovanna</figcaption>
+        </figure>
+
+        <div class="revelar space-y-5 text-[17px] font-light leading-relaxed text-carvao/80">
+          <p class="rotulo text-vinho">Nossa história</p>
+          <h2 class="!mt-5 font-titulo text-4xl font-light leading-tight text-carvao md:text-5xl">
+            De mãe para filha, o mesmo compromisso com cada sorriso.
+          </h2>
+          <div class="filete !my-8 text-vinho"></div>
+          <p>
+            Essa história começa antes da clínica. <strong class="font-medium text-carvao">Hisashi Nakayama</strong>, o querido
+            <em class="font-titulo text-[1.15em] italic text-carvao">Dr. Julinho</em>, como era chamado por seus pacientes, nasceu em Okinawa,
+            no Japão, e veio ainda criança para o Brasil com a família. Aqui, formou-se médico pediatra e neonatologista
+            e dedicou toda a sua vida aos pequenos pacientes. É dele o exemplo de cuidado e amor à profissão
+            que inspira, até hoje, a filha e a neta.
+          </p>
+          <p>
+            Foi seguindo esse exemplo que a <strong class="font-medium text-carvao">Dra. Jaqueline Nakayama</strong> fundou, há 26 anos,
+            a Clínica Nakayama, com o propósito de oferecer uma odontologia próxima, honesta e feita com tempo para ouvir cada paciente.
+            Ao longo dessas mais de duas décadas, famílias inteiras confiaram seus sorrisos aos nossos cuidados.
+          </p>
+          <p>
+            Hoje, essa história ganha um novo capítulo com a chegada da <strong class="font-medium text-carvao">Dra. Giovanna Nakayama</strong>,
+            filha da fundadora e neta do Dr. Julinho, que traz à clínica a harmonização orofacial e um olhar contemporâneo sobre estética e bem-estar.
+          </p>
+          <p>
+            Três gerações dedicadas à saúde e uma mesma convicção: cada paciente é único, e merece ser tratado assim.
+          </p>
+        </div>
+      </div>
+
+      <!-- Missão, visão e valores -->
+      <div class="mx-auto mt-20 grid max-w-6xl gap-px overflow-hidden border border-areia bg-areia px-0 md:grid-cols-3">
+        <article class="revelar bg-perola p-9 md:p-10">
+          <p class="rotulo text-vinho">Missão</p>
+          <p class="mt-5 font-titulo text-2xl font-light leading-snug">
+            Promover saúde bucal e bem-estar com atendimento humanizado, ético e personalizado, devolvendo a cada paciente a confiança de sorrir.
+          </p>
+        </article>
+        <article class="revelar bg-perola p-9 md:p-10">
+          <p class="rotulo text-vinho">Visão</p>
+          <p class="mt-5 font-titulo text-2xl font-light leading-snug">
+            Ser a clínica de confiança das famílias da Zona Norte, unindo a tradição de 26 anos à constante atualização técnica.
+          </p>
+        </article>
+        <article class="revelar bg-perola p-9 md:p-10">
+          <p class="rotulo text-vinho">Valores</p>
+          <ul class="mt-5 space-y-2.5 font-light text-carvao/80">
+            <li class="flex gap-3"><span class="mt-2.5 h-px w-4 shrink-0 bg-vinho"></span>Ética e transparência em cada orientação</li>
+            <li class="flex gap-3"><span class="mt-2.5 h-px w-4 shrink-0 bg-vinho"></span>Acolhimento e escuta atenta</li>
+            <li class="flex gap-3"><span class="mt-2.5 h-px w-4 shrink-0 bg-vinho"></span>Respeito à individualidade de cada paciente</li>
+            <li class="flex gap-3"><span class="mt-2.5 h-px w-4 shrink-0 bg-vinho"></span>Excelência técnica e atualização constante</li>
+            <li class="flex gap-3"><span class="mt-2.5 h-px w-4 shrink-0 bg-vinho"></span>Segurança e biossegurança rigorosas</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===================== EQUIPE ===================== -->
+    <section id="equipe" class="scroll-mt-20 bg-areia/60 py-24 md:py-32">
+      <div class="mx-auto max-w-6xl px-5 md:px-8">
+        <div class="revelar text-center">
+          <p class="rotulo text-vinho">Quem cuida de você</p>
+          <h2 class="mt-5 font-titulo text-4xl font-light md:text-5xl">Nossas dentistas</h2>
+        </div>
+
+        <div class="mt-16 grid gap-8 lg:grid-cols-2">
+          <!-- Dra. Jaqueline -->
+          <article class="revelar flex flex-col bg-perola p-8 md:p-12">
+            <!-- Trocar o monograma por uma foto quando houver: <img src="img/jaqueline.jpg" ...> -->
+            <div class="flex h-24 w-24 items-center justify-center rounded-full bg-carvao font-titulo text-3xl font-light tracking-wider text-perola">JN</div>
+            <h3 class="mt-8 font-caps text-2xl tracking-wide">Dra. Jaqueline Nakayama</h3>
+            <p class="rotulo mt-3 text-pedra">Fundadora · Cirurgiã-Dentista · Clínica Geral · CROSP 74506</p>
+            <p class="mt-6 flex-1 font-light leading-relaxed text-carvao/80">
+              Idealizadora da Clínica Nakayama, a Dra. Jaqueline dedica há 26 anos sua carreira à clínica geral,
+              cuidando da saúde bucal de pacientes de todas as idades com experiência, atenção e proximidade.
+              É ela quem acompanha o paciente de forma integral, da prevenção ao planejamento do tratamento,
+              para que cada etapa seja conduzida com segurança e tranquilidade.
+            </p>
+            <a href="https://www.instagram.com/jacknakayama/" target="_blank" rel="noopener" class="mt-8 inline-flex items-center gap-2 text-sm tracking-wide text-vinho transition hover:text-vinho-escuro">
+              <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor"/></svg>
+              @jacknakayama
+            </a>
+          </article>
+
+          <!-- Dra. Giovanna -->
+          <article class="revelar flex flex-col bg-perola p-8 md:p-12">
+            <div class="flex h-24 w-24 items-center justify-center rounded-full bg-vinho font-titulo text-3xl font-light tracking-wider text-perola">GN</div>
+            <h3 class="mt-8 font-caps text-2xl tracking-wide">Dra. Giovanna Nakayama</h3>
+            <p class="rotulo mt-3 text-pedra">Cirurgiã-Dentista · Harmonização Orofacial · CROSP 176714</p>
+            <p class="mt-6 flex-1 font-light leading-relaxed text-carvao/80">
+              Cirurgiã-dentista com atuação em harmonização orofacial, a Dra. Giovanna traz para a Clínica Nakayama
+              um olhar voltado à individualidade, ao equilíbrio e à naturalidade de cada paciente.
+              Seu propósito é valorizar a beleza de forma elegante e personalizada, com procedimentos planejados
+              para respeitar os traços e as características únicas de cada rosto, realçando quem você já é, sem exageros.
+            </p>
+            <a href="https://www.instagram.com/dragiovannanakayama/" target="_blank" rel="noopener" class="mt-8 inline-flex items-center gap-2 text-sm tracking-wide text-vinho transition hover:text-vinho-escuro">
+              <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor"/></svg>
+              @dragiovannanakayama
+            </a>
+          </article>
+        </div>
+
+        <p class="revelar mx-auto mt-12 max-w-3xl text-center font-light leading-relaxed text-carvao/75">
+          Para oferecer um cuidado completo, a clínica conta também com uma <strong class="font-medium text-carvao">equipe de especialistas parceiros</strong>
+          em Implantodontia, Ortodontia e Endodontia, profissionais altamente qualificados que atendem em dias
+          programados para que você realize todo o seu tratamento em um só lugar.
+        </p>
+      </div>
+    </section>
+
+    <!-- ===================== TRATAMENTOS ===================== -->
+    <section id="tratamentos" class="scroll-mt-20 py-24 md:py-32">
+      <div class="mx-auto max-w-6xl px-5 md:px-8">
+        <div class="revelar max-w-2xl">
+          <p class="rotulo text-vinho">Tratamentos</p>
+          <h2 class="mt-5 font-titulo text-4xl font-light leading-tight md:text-5xl">Todas as áreas da odontologia, em um só lugar.</h2>
+          <p class="mt-6 font-light leading-relaxed text-carvao/75">
+            Da prevenção à estética, cada tratamento começa com uma avaliação cuidadosa e um plano pensado para você.
+          </p>
+        </div>
+
+        <!-- Destaques -->
+        <div class="mt-14 grid gap-6 md:grid-cols-2">
+          <article class="revelar cartao-servico border border-areia bg-carvao p-9 text-perola md:p-11">
+            <p class="rotulo text-perola/55">Com a Dra. Jaqueline</p>
+            <h3 class="mt-4 font-titulo text-3xl font-light">Clínica Geral &amp; Prevenção</h3>
+            <p class="mt-4 font-light leading-relaxed text-perola/75">
+              Consultas de rotina, limpeza, restaurações e acompanhamento contínuo. A base de um sorriso saudável
+              e o ponto de partida de todo tratamento na clínica.
+            </p>
+          </article>
+          <article class="revelar cartao-servico border border-vinho bg-vinho p-9 text-perola md:p-11">
+            <p class="rotulo text-perola/60">Com a Dra. Giovanna</p>
+            <h3 class="mt-4 font-titulo text-3xl font-light">Harmonização Orofacial</h3>
+            <p class="mt-4 font-light leading-relaxed text-perola/80">
+              Procedimentos planejados de forma individual para realçar a beleza natural do rosto, com equilíbrio,
+              elegância e resultados que respeitam os seus traços.
+            </p>
+            <ul class="mt-6 grid gap-x-6 gap-y-2.5 border-t border-perola/20 pt-6 font-light text-perola/90 sm:grid-cols-2">
+              <li class="flex gap-3"><span class="mt-2.5 h-px w-4 shrink-0 bg-perola/60"></span>Toxina botulínica</li>
+              <li class="flex gap-3"><span class="mt-2.5 h-px w-4 shrink-0 bg-perola/60"></span>Preenchimento facial</li>
+              <li class="flex gap-3"><span class="mt-2.5 h-px w-4 shrink-0 bg-perola/60"></span>Bioestimuladores de colágeno</li>
+              <li class="flex gap-3"><span class="mt-2.5 h-px w-4 shrink-0 bg-perola/60"></span>Toxina botulínica para bruxismo</li>
+            </ul>
+          </article>
+        </div>
+
+        <!-- Demais especialidades -->
+        <div class="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <article class="revelar cartao-servico border border-areia bg-white p-8">
+            <svg class="h-8 w-8 text-vinho" fill="none" stroke="currentColor" stroke-width="1.2" viewBox="0 0 32 32"><path d="M9 6c3-2 5 0 7 0s4-2 7 0 2 8 0 10H9C7 14 6 8 9 6Z"/><path d="M13 16v4h6v-4M14 20l1 3h2l1-3M15 23l.5 3h1l.5-3"/></svg>
+            <h3 class="mt-6 font-titulo text-2xl">Implantes Dentários</h3>
+            <p class="mt-3 font-light leading-relaxed text-carvao/70">Reposição de dentes perdidos com segurança, devolvendo função, firmeza e estética ao sorriso.</p>
+          </article>
+          <article class="revelar cartao-servico border border-areia bg-white p-8">
+            <svg class="h-8 w-8 text-vinho" fill="none" stroke="currentColor" stroke-width="1.2" viewBox="0 0 32 32"><path d="M4 16h24"/><rect x="7" y="12" width="5" height="8" rx="1.5"/><rect x="13.5" y="12" width="5" height="8" rx="1.5"/><rect x="20" y="12" width="5" height="8" rx="1.5"/></svg>
+            <h3 class="mt-6 font-titulo text-2xl">Ortodontia</h3>
+            <p class="mt-3 font-light leading-relaxed text-carvao/70">Aparelhos para alinhar os dentes e corrigir a mordida, com opções para crianças, jovens e adultos.</p>
+          </article>
+          <article class="revelar cartao-servico border border-areia bg-white p-8">
+            <svg class="h-8 w-8 text-vinho" fill="none" stroke="currentColor" stroke-width="1.2" viewBox="0 0 32 32"><path d="M9 5c3-2 5 0 7 0s4-2 7 0 2 9-1 12l-2 10h-2l-2-8-2 8h-2L10 17C7 14 6 7 9 5Z"/><path d="M16 9v10" stroke-dasharray="2 2"/></svg>
+            <h3 class="mt-6 font-titulo text-2xl">Endodontia</h3>
+            <p class="mt-3 font-light leading-relaxed text-carvao/70">Tratamento de canal realizado em uma única sessão, com conforto e precisão, para preservar o seu dente natural.</p>
+          </article>
+          <article class="revelar cartao-servico border border-areia bg-white p-8">
+            <svg class="h-8 w-8 text-vinho" fill="none" stroke="currentColor" stroke-width="1.2" viewBox="0 0 32 32"><circle cx="16" cy="16" r="5"/><path d="M16 4v4M16 24v4M4 16h4M24 16h4M7.5 7.5l2.8 2.8M21.7 21.7l2.8 2.8M7.5 24.5l2.8-2.8M21.7 10.3l2.8-2.8"/></svg>
+            <h3 class="mt-6 font-titulo text-2xl">Clareamento Dental</h3>
+            <p class="mt-3 font-light leading-relaxed text-carvao/70">Técnicas de consultório e caseiras supervisionadas para um sorriso mais claro, com segurança.</p>
+          </article>
+          <article class="revelar cartao-servico border border-areia bg-white p-8 sm:col-span-2 lg:col-span-1">
+            <svg class="h-8 w-8 text-vinho" fill="none" stroke="currentColor" stroke-width="1.2" viewBox="0 0 32 32"><path d="M5 13c4 6 18 6 22 0"/><path d="M8 15.5v3M12 16.8v3.2M16 17.2v3.3M20 16.8v3.2M24 15.5v3"/><path d="M6 21c4 5 16 5 20 0"/></svg>
+            <h3 class="mt-6 font-titulo text-2xl">Lentes de Contato Dental</h3>
+            <p class="mt-3 font-light leading-relaxed text-carvao/70">Laminados ultrafinos (facetas) que harmonizam cor, forma e alinhamento, com aparência natural.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== ESTRUTURA / DIFERENCIAIS ===================== -->
+    <section id="estrutura" class="scroll-mt-20 bg-carvao py-24 text-perola md:py-32">
+      <div class="mx-auto max-w-6xl px-5 md:px-8">
+        <div class="revelar max-w-2xl">
+          <p class="rotulo text-perola/60">Por que a Clínica Nakayama</p>
+          <h2 class="mt-5 font-titulo text-4xl font-light leading-tight md:text-5xl">Pensada para o seu conforto, do primeiro contato ao último retorno.</h2>
+        </div>
+
+        <div class="mt-16 grid gap-x-12 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
+          <div class="revelar">
+            <p class="font-titulo text-3xl font-light text-[#E9C9C3]">01</p>
+            <h3 class="mt-3 font-caps text-lg tracking-wide">Equipe qualificada</h3>
+            <p class="mt-3 font-light leading-relaxed text-perola/70">Dentistas e especialistas em constante atualização, trabalhando em conjunto no seu plano de tratamento.</p>
+          </div>
+          <div class="revelar">
+            <p class="font-titulo text-3xl font-light text-[#E9C9C3]">02</p>
+            <h3 class="mt-3 font-caps text-lg tracking-wide">Atendimento humanizado</h3>
+            <p class="mt-3 font-light leading-relaxed text-perola/70">Consultas sem pressa, com tempo para ouvir, explicar cada etapa e esclarecer todas as dúvidas.</p>
+          </div>
+          <div class="revelar">
+            <p class="font-titulo text-3xl font-light text-[#E9C9C3]">03</p>
+            <h3 class="mt-3 font-caps text-lg tracking-wide">Tudo em um só lugar</h3>
+            <p class="mt-3 font-light leading-relaxed text-perola/70">Clínica geral, estética, harmonização e especialidades reunidas, sem precisar procurar outros consultórios.</p>
+          </div>
+          <div class="revelar">
+            <p class="font-titulo text-3xl font-light text-[#E9C9C3]">04</p>
+            <h3 class="mt-3 font-caps text-lg tracking-wide">Fácil acesso</h3>
+            <p class="mt-3 font-light leading-relaxed text-perola/70">No Parque Mandaqui, próximo à Padaria Flor do Mandaqui, com estacionamento no próprio edifício.</p>
+          </div>
+          <div class="revelar">
+            <p class="font-titulo text-3xl font-light text-[#E9C9C3]">05</p>
+            <h3 class="mt-3 font-caps text-lg tracking-wide">Acessibilidade</h3>
+            <p class="mt-3 font-light leading-relaxed text-perola/70">Edifício preparado para receber com conforto pessoas com mobilidade reduzida.</p>
+          </div>
+          <div class="revelar">
+            <p class="font-titulo text-3xl font-light text-[#E9C9C3]">06</p>
+            <h3 class="mt-3 font-caps text-lg tracking-wide">Segurança</h3>
+            <p class="mt-3 font-light leading-relaxed text-perola/70">Protocolos rigorosos de biossegurança e esterilização para a sua tranquilidade.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== LOCALIZAÇÃO ===================== -->
+    <section id="localizacao" class="scroll-mt-20 py-24 md:py-32">
+      <div class="mx-auto grid max-w-6xl gap-12 px-5 md:px-8 lg:grid-cols-[1fr_1.2fr] lg:gap-16">
+        <div class="revelar">
+          <p class="rotulo text-vinho">Localização</p>
+          <h2 class="mt-5 font-titulo text-4xl font-light leading-tight md:text-5xl">No coração da Zona Norte.</h2>
+
+          <address class="mt-8 not-italic font-light leading-relaxed text-carvao/80">
+            <span class="font-medium text-carvao">Edifício Nicole · Sala 23</span><br>
+            Av. Zumkeller, 98<br>
+            Parque Mandaqui · São Paulo/SP · CEP 02420-000
+          </address>
+
+          <ul class="mt-8 space-y-4 font-light text-carvao/80">
+            <li class="flex gap-4">
+              <svg class="mt-0.5 h-5 w-5 shrink-0 text-vinho" fill="none" stroke="currentColor" stroke-width="1.4" viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+              Ponto de referência: Padaria Flor do Mandaqui
+            </li>
+            <li class="flex gap-4">
+              <svg class="mt-0.5 h-5 w-5 shrink-0 text-vinho" fill="none" stroke="currentColor" stroke-width="1.4" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9.5 17V7h3.5a3 3 0 0 1 0 6H9.5"/></svg>
+              Estacionamento pago no próprio edifício, além de outras opções nas proximidades
+            </li>
+            <li class="flex gap-4">
+              <svg class="mt-0.5 h-5 w-5 shrink-0 text-vinho" fill="none" stroke="currentColor" stroke-width="1.4" viewBox="0 0 24 24"><circle cx="12" cy="4.5" r="1.5"/><path d="M12 7v6h5l2 6M12 10h5"/><path d="M9 11.5a5 5 0 1 0 6.5 6.5"/></svg>
+              Edifício com acessibilidade
+            </li>
+          </ul>
+
+          <div class="mt-10 flex flex-wrap gap-3">
+            <a href="https://www.google.com/maps/search/?api=1&amp;query=Av.+Zumkeller%2C+98+-+Parque+Mandaqui%2C+S%C3%A3o+Paulo+-+SP%2C+02420-000"
+               target="_blank" rel="noopener"
+               class="inline-flex items-center gap-2 bg-carvao px-6 py-3.5 text-[13px] uppercase tracking-[.16em] text-perola transition hover:bg-vinho">
+              <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+              Abrir no Google Maps
+            </a>
+            <a href="https://waze.com/ul?q=Av.%20Zumkeller%2098%20S%C3%A3o%20Paulo&amp;navigate=yes"
+               target="_blank" rel="noopener"
+               class="inline-flex items-center gap-2 border border-carvao/25 px-6 py-3.5 text-[13px] uppercase tracking-[.16em] transition hover:border-carvao">
+              Abrir no Waze
+            </a>
+          </div>
+        </div>
+
+        <div class="revelar min-h-[360px] overflow-hidden border border-areia bg-areia">
+          <iframe
+            title="Mapa: Clínica Nakayama, Av. Zumkeller, 98 - Parque Mandaqui, São Paulo"
+            src="https://maps.google.com/maps?q=Av.%20Zumkeller%2C%2098%20-%20Parque%20Mandaqui%2C%20S%C3%A3o%20Paulo%20-%20SP%2C%2002420-000&amp;z=16&amp;output=embed"
+            class="h-full min-h-[360px] w-full grayscale-[40%]"
+            style="border:0" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== CONTATO E HORÁRIOS ===================== -->
+    <section id="contato" class="scroll-mt-20 bg-areia/60 py-24 md:py-32">
+      <div class="mx-auto max-w-6xl px-5 md:px-8">
+        <div class="revelar text-center">
+          <p class="rotulo text-vinho">Contato</p>
+          <h2 class="mt-5 font-titulo text-4xl font-light md:text-5xl">Será um prazer receber você.</h2>
+        </div>
+
+        <div class="mt-16 grid gap-6 md:grid-cols-3">
+          <div class="revelar bg-perola p-9 text-center">
+            <p class="rotulo text-pedra">Horário de atendimento</p>
+            <p class="mt-5 font-titulo text-2xl">Segunda, terça, quarta e sexta</p>
+            <p class="mt-1 font-light text-carvao/75">das 9h às 17h</p>
+            <p class="mt-5 text-sm font-light text-carvao/65">Sábados: atendimento excepcional, mediante agendamento</p>
+          </div>
+
+          <div class="revelar bg-perola p-9 text-center">
+            <p class="rotulo text-pedra">Telefone e WhatsApp</p>
+            <a href="tel:+5511951375883" class="mt-5 block font-titulo text-3xl transition hover:text-vinho">(11) 95137-5883</a>
+            <p class="mt-3 text-sm font-light text-carvao/65">Agende sua avaliação</p>
+          </div>
+
+          <div class="revelar bg-perola p-9 text-center">
+            <p class="rotulo text-pedra">Instagram</p>
+            <ul class="mt-5 space-y-2 font-light">
+              <li><a href="https://www.instagram.com/clinicanakayama/" target="_blank" rel="noopener" class="font-titulo text-2xl transition hover:text-vinho">@clinicanakayama</a></li>
+              <li><a href="https://www.instagram.com/jacknakayama/" target="_blank" rel="noopener" class="text-carvao/75 transition hover:text-vinho">@jacknakayama</a></li>
+              <li><a href="https://www.instagram.com/dragiovannanakayama/" target="_blank" rel="noopener" class="text-carvao/75 transition hover:text-vinho">@dragiovannanakayama</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================== RODAPÉ ===================== -->
+  <footer class="bg-carvao text-perola/70">
+    <div class="mx-auto flex max-w-6xl flex-col items-center gap-8 px-5 py-14 text-center md:flex-row md:justify-between md:text-left md:px-8">
+      <div class="flex items-center gap-4">
+        <svg class="h-14 w-14"><use href="#emblema"/></svg>
+        <div>
+          <p class="font-caps tracking-[.2em] text-perola">Clínica Nakayama</p>
+          <p class="mt-1 text-sm font-light">Odontologia &amp; Harmonização Orofacial</p>
+        </div>
+      </div>
+      <div class="text-sm font-light leading-relaxed">
+        <p>Av. Zumkeller, 98 · Sala 23 · Parque Mandaqui · São Paulo/SP · <span class="whitespace-nowrap">CEP 02420-000</span></p>
+        <p>Responsável técnica: Dra. Jaqueline Nakayama · CROSP 74506</p>
+      </div>
+    </div>
+    <div class="border-t border-white/10 py-5 text-center text-xs font-light tracking-wide text-perola/45">
+      © <span id="ano"></span> Clínica Nakayama · Todos os direitos reservados
+    </div>
+  </footer>
+
+  <script>
+    // Ano atual no rodapé
+    document.getElementById('ano').textContent = new Date().getFullYear();
+
+    // Cabeçalho muda de fundo ao rolar
+    const cabecalho = document.getElementById('cabecalho');
+    const atualizarCabecalho = () => cabecalho.classList.toggle('rolado', window.scrollY > 40);
+    atualizarCabecalho();
+    window.addEventListener('scroll', atualizarCabecalho, { passive: true });
+
+    // Menu do celular
+    const botaoMenu = document.getElementById('botao-menu');
+    const menuMovel = document.getElementById('menu-movel');
+    botaoMenu.addEventListener('click', () => {
+      const aberto = menuMovel.classList.toggle('hidden') === false;
+      botaoMenu.setAttribute('aria-expanded', aberto);
+      cabecalho.classList.add('rolado');
+    });
+    menuMovel.querySelectorAll('a').forEach(link =>
+      link.addEventListener('click', () => {
+        menuMovel.classList.add('hidden');
+        botaoMenu.setAttribute('aria-expanded', 'false');
+      })
+    );
+
+    // Revela as seções suavemente ao rolar
+    const observador = new IntersectionObserver((entradas) => {
+      entradas.forEach(entrada => {
+        if (entrada.isIntersecting) {
+          entrada.target.classList.add('visivel');
+          observador.unobserve(entrada.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.revelar').forEach(el => observador.observe(el));
+  </script>
+</body>
+</html>
